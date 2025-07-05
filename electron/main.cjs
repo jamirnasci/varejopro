@@ -10,9 +10,14 @@ const createWindow = ()=>{
         }
     })
 
-    win.loadURL('http://localhost:5555/')
+    win.loadURL('http://localhost:5173/')
 }
 
 app.whenReady().then(()=>{
     createWindow()
+})
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
 })
